@@ -1,5 +1,6 @@
 <ul class="list-group hover">
     <li class="list-group-item" *ngFor="let emp of emplist" (click)="onItemClick(emp)">
-        {{emp.name}} - {{emp.position}}
+        {{emp.name}} | STime = {{emp.startTime}} | ETime = {{emp.endTime}}
+        <span class="badge">TotalTime = {{emp.totalTime}}</span>
     </li>
 </ul>

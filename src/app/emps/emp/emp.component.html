@@ -3,9 +3,9 @@
 
     <div class="form-group">
         <label>Name</label>
-        <input class="form-control" name="name" #name="ngModel" [(ngModel)]="empService.selectedEmp.name" placeholder="Full Name" required>
+        <input class="form-control" name="name" #name="ngModel" [(ngModel)]="empService.selectedEmp.name" placeholder="Full Name">
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label>Position</label>
         <input class="form-control" name="position" #name="ngModel" [(ngModel)]="empService.selectedEmp.position" placeholder="Position">
     </div>
@@ -16,7 +16,21 @@
     <div class="form-group">
         <label>Salary</label>
         <input class="form-control" name="salary" #name="ngModel" [(ngModel)]="empService.selectedEmp.salary" placeholder="Salary">
+    </div> -->
+    <div class="form-group">
+        <label>Date</label>
+        <input class="form-control" name="date" #name="ngModel" [(ngModel)]="empService.selectedEmp.date" disabled>
+        
     </div>
+    <div class="form-group">
+        <label>Start Time</label>
+        <input class="form-control" name="startTime" #name="ngModel" [(ngModel)]="empService.selectedEmp.startTime" disabled required>
+    </div>
+    <div class="form-group">
+        <label>End Time</label>
+        <input class="form-control" name="endTime" #name="ngModel" [(ngModel)]="empService.selectedEmp.endTime" disabled >
+    </div>
+    
     <!-- <div class="form-group">
             <label>Salary</label>
           <div class="input-group">
@@ -28,11 +42,18 @@
         </div> -->
 
     <div class="form-group">
-        <button type="submit" class="btn btn-default" [disabled]="!empForm.valid">
-             <i class="fa fa-floppy-o"></i>  Submit</button>
+        <!-- <button type="submit" class="btn btn-default" [disabled]="!empForm.valid && ">
+                    <i class="fa fa-floppy-o"></i>  Enter Login</button> -->
+        <button type="submit" class="btn btn-default" [disabled]="empService.selectedEmp.startTime" >
+             <i class="fa fa-floppy-o"></i>  Enter Login</button>
+        
+        <button type="button" class="btn btn-default" (click)="addEndTime(empForm)" *ngIf="empService.selectedEmp.$key!=null">
+            <i class="fa fa-repeat"></i>  Enter Logout</button>
+        
         <button type="button" class="btn btn-default" *ngIf="empService.selectedEmp.$key!=null" (click)="onDelete(empForm)">
-            <i class="fa fa-trash"></i> Delete</button>
+            <i class="fa fa-trash"></i>  Delete</button>
+        
         <button type="button" class="btn btn-default" (click)="resetForm()">
-            <i class="fa fa-repeat"></i> Reset</button>
+            <i class="fa fa-repeat"></i>  Reset</button>
     </div>
 </form>

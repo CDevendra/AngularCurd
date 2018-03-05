@@ -21,8 +21,8 @@ const appRoutes: Routes = [
   { path: 'list', component: ListEmployeesComponent },
   { path: 'create', component: CreateEmployeesComponent },
   { path: 'emps', component: EmpsComponent },
-  { path: 'emps/list', component: EmpComponent },
-  { path: 'emps/list', component: EmpListComponent },  
+ // { path: 'emps/list', component: EmpComponent },
+ // { path: 'emps/list', component: EmpListComponent },  
   { path: '', redirectTo: '/list', pathMatch: 'full' }
 ]
 

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class EmpService{
-
+    
     empList : AngularFireList<any>;
     selectedEmp : Emp = new Emp();
     constructor(private firebase : AngularFireDatabase){ }
@@ -14,21 +14,29 @@ export class EmpService{
         return this.empList;
     }
 
-    insertEmp(emp : Emp){
+    insertEmp(emp : Emp, totalTime){
         this.empList.push({
             name : emp.name,
-            position : emp.position,
-            office : emp.office,
-            salary : emp.salary
+            // position : emp.position,
+            // office : emp.office,
+            // salary : emp.salary,
+            date : emp.date,
+            startTime : emp.startTime,
+            endTime :emp.endTime,
+            totalTime : totalTime,
         });
     }
 
-    updateEmp(emp: Emp){
+    updateEmp(emp: Emp, totalTime){
         this.empList.update(emp.$key,{
             name : emp.name,
-            position : emp.position,
-            office : emp.office,
-            salary : emp.salary
+            // position : emp.position,
+            // office : emp.office,
+            // salary : emp.salary,
+            date : emp.date,
+            startTime : emp.startTime,
+            endTime :emp.endTime,
+            totalTime : totalTime
         })
     }
 
